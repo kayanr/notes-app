@@ -10,12 +10,6 @@ class App extends React.Component {
       notes: [],
       mode: "VIEW",
     };
-
-    this.toggleMode = this.toggleMode.bind(this);
-  }
-
-  toggleMode() {
-    this.setState({ mode: this.state.mode === "VIEW" ? "EDIT" : "VIEW" });
   }
 
   componentDidMount() {
@@ -32,18 +26,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Notes</h1>
-        {/* <div hidden={this.setState.mode === "VIEW"}>
-          <ExpenseListView
-            expenses={this.state.expenses}
-            toggle={this.toggleMode}
-          />
-        </div> */}
-        {/* <div hidden={this.state.mode === "VIEW"}> */}
-        {/* <ExpenseEdit toggle={this.toggleMode} /> */}
-        {/* <AddExpense toggle={this.toggleMode} /> */}
-        {/* <CreateNote /> */}
-        {/* </div> */}
+
         <NoteListView notes={this.state.notes} />
+        <br />
+        <CreateNote />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./CreateNote.css";
 
 export class CreateNote extends Component {
   submitExpense(event) {
@@ -25,59 +26,10 @@ export class CreateNote extends Component {
     return (
       // <div className="row">
       <>
-        <h2>Add Expenses form test</h2>
+        <h2>Add Notes form test</h2>
         <div className="container">
-          <form onSubmit={this.submitNote.bind(this)}>
-            <label
-              htmlFor="ename"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Name:{" "}
-            </label>
-            <input
-              type="text"
-              id="ename"
-              name="ename"
-              placeholder="Enter name of expense..."
-            />{" "}
-            <br />
-            <label
-              htmlFor="amount"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Amount ($):{" "}
-            </label>
-            <input
-              type="text"
-              id="amount"
-              name="amount"
-              placeholder=" Your expense amount..."
-            />{" "}
-            <br />
-            <label
-              htmlFor="category"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Category:{" "}
-            </label>
-            <select id="category" name="category">
-              <option value="Food">Food</option>
-              <option value="Clothing">Clothing</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Travel">Travel</option>
-            </select>{" "}
+          {/* <form onSubmit={this.submitNote.bind(this)}> */}
+          <form>
             <br />
             <label
               htmlFor="description"
@@ -96,14 +48,25 @@ export class CreateNote extends Component {
               style={{ height: "170px" }}
             ></textarea>
             <br />
+            <label
+              htmlFor="category"
+              style={{
+                display: "inline-block;",
+                width: "140px;",
+                textAlign: "right;",
+              }}
+            >
+              Category:{" "}
+            </label>
+            <select id="category" name="category">
+              <option value="Food">Food</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Travel">Travel</option>
+            </select>{" "}
             <input
               type="submit"
-              value="Create"
-              // style={{ backgroundColor: "#dae8f9" }}
-            />
-            <input
-              type="submit"
-              value="Cancel"
+              value="Submit"
               // style={{ backgroundColor: "#dae8f9" }}
             />
           </form>
