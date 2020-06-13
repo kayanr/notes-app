@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { NoteListView } from "./components/NoteListView";
+import { CreateNote } from "./components/CreateNote";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [],
+      mode: "VIEW",
+    };
+
+    this.toggleMode = this.toggleMode.bind(this);
+  }
+
+  toggleMode() {
+    this.setState({ mode: this.state.mode === "VIEW" ? "EDIT" : "VIEW" });
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:8080/notes")
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          notes: data,
+        })
+      );
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Notes</h1>
+        {/* <div hidden={this.setState.mode === "VIEW"}>
+          <ExpenseListView
+            expenses={this.state.expenses}
+            toggle={this.toggleMode}
+          />
+        </div> */}
+        {/* <div hidden={this.state.mode === "VIEW"}> */}
+        {/* <ExpenseEdit toggle={this.toggleMode} /> */}
+        {/* <AddExpense toggle={this.toggleMode} /> */}
+        {/* <CreateNote /> */}
+        {/* </div> */}
+        <NoteListView notes={this.state.notes} />
+      </div>
+    );
+  }
 }
 
 export default App;
