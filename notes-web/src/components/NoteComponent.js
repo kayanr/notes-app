@@ -2,7 +2,6 @@ import React from "react";
 
 let textToColor = "";
 export function NoteComponent(props) {
-  //alert(props.expense.category);
   if (props.note.color === "red") {
     textToColor = (
       <div
@@ -14,7 +13,6 @@ export function NoteComponent(props) {
           float: "left",
           marginLeft: "10px",
           marginBottom: "10px",
-          // backgroundColor: "#D4E8D4",
         }}
       >
         {props.note.text}
@@ -31,7 +29,6 @@ export function NoteComponent(props) {
           float: "left",
           marginLeft: "10px",
           marginBottom: "10px",
-          // backgroundColor: "#D4E8D4",
         }}
       >
         {props.note.text}
@@ -48,7 +45,6 @@ export function NoteComponent(props) {
           float: "left",
           marginLeft: "10px",
           marginBottom: "10px",
-          // backgroundColor: "#D4E8D4", #DDA0DD
         }}
       >
         {props.note.text}
@@ -65,7 +61,6 @@ export function NoteComponent(props) {
           float: "left",
           marginLeft: "10px",
           marginBottom: "10px",
-          // backgroundColor: "#D4E8D4", #DDA0DD
         }}
       >
         {props.note.text}
@@ -85,7 +80,6 @@ export function NoteComponent(props) {
           float: "left",
           marginLeft: "10px",
           marginBottom: "10px",
-          // backgroundColor: "#D4E8D4",
         }}
       >
         {props.note.text}
@@ -94,22 +88,4 @@ export function NoteComponent(props) {
   }
 
   return <div>{textToColor}</div>;
-
-  /*
-  return (
-    <div
-      style={{
-        border: "1px solid red",
-        backgroundColor: "yellow",
-        width: "200px",
-        height: "200px",
-        float: "left",
-        marginLeft: "10px",
-        marginBottom: "10px",
-      }}
-    >
-      {/* <p style={{ float: "left" }}> {props.note.text}</p> */
 }
-/*  <p> {props.note.text}</p>
-    </div> */
-//);}
