@@ -10,7 +10,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       notes: [],
-      mode: "VIEW",
     };
   }
 
@@ -26,17 +25,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Notes</h1>
-        <div style={{ position: "relative;", top: "420px;" }}>
+      <div>
+        <h1 align="center">Notes</h1>
+        <div>
           <NoteListView notes={this.state.notes} />
         </div>
 
         <br />
-        <div style={{ position: "relative;" }}>
+        <div>
           <CreateNote />
-          {/* <PostForm /> */}
-          {/* <PostRequest /> */}
         </div>
       </div>
     );

@@ -39,15 +39,13 @@ export class CreateNote extends Component {
     const { id, text, color } = this.state;
     return (
       <div style={{ clear: "both", marginTop: "100px" }}>
-        <h2>Add Notes form test</h2>
-
         <form onSubmit={this.submitHandler}>
-          <div style={{ float: "left" }}>
+          <div style={{ float: "left", padding: "10px" }}>
             <label
               htmlFor="text"
               style={{
                 display: "inline-block",
-                width: "140px",
+                width: "280px",
                 textAlign: "left",
               }}
             >
@@ -59,16 +57,16 @@ export class CreateNote extends Component {
               value={text}
               onChange={this.changeHandler}
               placeholder="Write your note here..."
-              style={{ height: "300px" }}
+              style={{ height: "200px" }}
             ></textarea>
           </div>
-          <div style={{ float: "left" }}>
+          <div style={{ float: "left", padding: "10px" }}>
             <div>
               <label
                 htmlFor="color"
                 style={{
                   display: "inline-block",
-                  width: "140px",
+                  width: "200px",
                   textAlign: "right",
                 }}
               >
@@ -81,8 +79,8 @@ export class CreateNote extends Component {
                 value={color}
                 onChange={this.changeHandler}
               >
+                <option value="red">Red</option>
                 <option value="yellow">Yellow</option>
-                <option value="blue">Blue</option>
                 <option value="green">Green</option>
                 <option value="purple">Purple</option>
               </select>{" "}
@@ -91,7 +89,6 @@ export class CreateNote extends Component {
               <input
                 type="submit"
                 value="Submit"
-                // style={{ backgroundColor: "#dae8f9" }}
                 style={{ backgroundColor: "blue" }}
               />
             </div>
