@@ -79,7 +79,7 @@ export function NoteComponent(props) {
       <div
         style={{
           border: "1px solid red",
-          backgroundColor: "green",
+          backgroundColor: "#33E8FF",
           width: "200px",
           height: "200px",
           float: "left",

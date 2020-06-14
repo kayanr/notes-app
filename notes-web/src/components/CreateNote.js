@@ -37,6 +37,8 @@ export class CreateNote extends Component {
 
   render() {
     const { id, text, color } = this.state;
+    const enabled = this.state.color.length > 0;
+
     return (
       <div style={{ clear: "both", marginTop: "100px" }}>
         <form onSubmit={this.submitHandler}>
@@ -54,7 +56,7 @@ export class CreateNote extends Component {
             <textarea
               id="text"
               name="text"
-              value={text}
+              value={this.state.text}
               onChange={this.changeHandler}
               placeholder="Write your note here..."
               style={{ height: "200px" }}
@@ -76,13 +78,14 @@ export class CreateNote extends Component {
               <select
                 id="color"
                 name="color"
-                value={color}
+                value={this.state.color}
                 onChange={this.changeHandler}
               >
-                <option value="red">Red</option>
+                <option value="">Select...</option>
                 <option value="yellow">Yellow</option>
                 <option value="green">Green</option>
                 <option value="purple">Purple</option>
+                <option value="red">Red</option>
               </select>{" "}
             </div>
             <div style={{ clear: "both" }}>
@@ -90,6 +93,8 @@ export class CreateNote extends Component {
                 type="submit"
                 value="Submit"
                 style={{ backgroundColor: "blue" }}
+                disabled={!enabled}
+                disabledInputStyle={{ opacity: 2 }}
               />
             </div>
           </div>

@@ -8,30 +8,22 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class NoteController  {
+public class NoteController {
 
     @Autowired
     private NoteRepository noteRepository;
 
-    //    Request: GET /ping
-    //    Response: "Up"
-    @GetMapping("/ping")
-    public String ping(){
-        return "Up -notes";
-    }
-
     //    Request: GET /notes
     //    Response: Note[]
     @GetMapping("/notes")
-    public List<Note> getAllNotes(){
+    public List<Note> getAllNotes() {
         return noteRepository.findAll();
     }
 
     //Request: POST /note Note
     //Response: Note
     @PostMapping("/note")
-    public Note saveExpense(@RequestBody Note note){
+    public Note saveExpense(@RequestBody Note note) {
         return noteRepository.save(note);
     }
-
 }

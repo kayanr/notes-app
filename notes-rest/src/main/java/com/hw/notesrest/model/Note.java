@@ -11,18 +11,17 @@ public class Note {
     private int id;
 
     private String text;
-
     private String color;
 
+    //constructors
     public Note(){}
-
-
 
     public Note(String text, String color) {
         this.text = text;
         this.color = color;
     }
 
+    //Getter and Setter Methods
     public int getId() {
         return id;
     }
