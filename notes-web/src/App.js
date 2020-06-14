@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import { NoteListView } from "./components/NoteListView";
 import { CreateNote } from "./components/CreateNote";
+import PostForm from "./components/PostForm";
+import { PostRequest } from "./components/PostRequest";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,10 +28,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Notes</h1>
+        <div style={{ position: "relative;", top: "420px;" }}>
+          <NoteListView notes={this.state.notes} />
+        </div>
 
-        <NoteListView notes={this.state.notes} />
         <br />
-        <CreateNote />
+        <div style={{ position: "relative;" }}>
+          <CreateNote />
+          {/* <PostForm /> */}
+          {/* <PostRequest /> */}
+        </div>
       </div>
     );
   }

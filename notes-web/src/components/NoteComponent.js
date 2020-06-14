@@ -1,54 +1,101 @@
 import React from "react";
 
-//let categoryColor = "";
+let textToColor = "";
 export function NoteComponent(props) {
   //alert(props.expense.category);
-  /*if (props.expense.category === "Food") {
-    categoryColor = (
+  if (props.note.color === "red") {
+    textToColor = (
       <div
         style={{
-          border: "1px solid #d6f5d6",
-          margin: "10px 200px",
-          backgroundColor: "#D4E8D4",
+          border: "1px solid #a77a75",
+          backgroundColor: "#f7cecc",
+          width: "200px",
+          height: "200px",
+          float: "left",
+          marginLeft: "10px",
+          marginBottom: "10px",
+          // backgroundColor: "#D4E8D4",
         }}
       >
-        <p style={{ float: "left" }}> {props.expense.description}</p>
-        <div style={{ clear: "both" }} />
+        {props.note.text}
       </div>
     );
-  }
-  if (props.expense.category === "Transportation") {
-    categoryColor = (
+  } else if (props.note.color === "yellow") {
+    textToColor = (
       <div
         style={{
-          border: "1px solid #ffffcc",
-          margin: "10px 200px",
-          backgroundColor: "#fff2ce",
+          border: "1px solid #d1c095",
+          backgroundColor: "#fff2cd",
+          width: "200px",
+          height: "200px",
+          float: "left",
+          marginLeft: "10px",
+          marginBottom: "10px",
+          // backgroundColor: "#D4E8D4",
         }}
       >
-        <p style={{ float: "left" }}> {props.expense.description}</p>
-        <div style={{ clear: "both" }} />
+        {props.note.text}
       </div>
     );
-  }
-  if (props.expense.category === "Travel") {
-    categoryColor = (
+  } else if (props.note.color === "green") {
+    textToColor = (
       <div
         style={{
-          border: "1px solid #f5ccff",
-          margin: "10px 200px",
-          backgroundColor: "#E2D5E7",
+          border: "1px solid #a1b390",
+          backgroundColor: "#d5e8d4",
+          width: "200px",
+          height: "200px",
+          float: "left",
+          marginLeft: "10px",
+          marginBottom: "10px",
+          // backgroundColor: "#D4E8D4", #DDA0DD
         }}
       >
-        <p style={{ float: "left" }}> {props.expense.description}</p>
-        <p style={{ float: "right" }}> ${props.expense.amount}</p>
-        <div style={{ clear: "both" }} />
+        {props.note.text}
+      </div>
+    );
+  } else if (props.note.color === "purple") {
+    textToColor = (
+      <div
+        style={{
+          border: "1px solid #9b8da1",
+          backgroundColor: "#e2d5e7",
+          width: "200px",
+          height: "200px",
+          float: "left",
+          marginLeft: "10px",
+          marginBottom: "10px",
+          // backgroundColor: "#D4E8D4", #DDA0DD
+        }}
+      >
+        {props.note.text}
       </div>
     );
   }
 
-  return <div>{categoryColor}</div>;
-*/
+  //else
+  else {
+    textToColor = (
+      <div
+        style={{
+          border: "1px solid red",
+          backgroundColor: "green",
+          width: "200px",
+          height: "200px",
+          float: "left",
+          marginLeft: "10px",
+          marginBottom: "10px",
+          // backgroundColor: "#D4E8D4",
+        }}
+      >
+        {props.note.text}
+      </div>
+    );
+  }
+
+  return <div>{textToColor}</div>;
+
+  /*
   return (
     <div
       style={{
@@ -61,8 +108,8 @@ export function NoteComponent(props) {
         marginBottom: "10px",
       }}
     >
-      {/* <p style={{ float: "left" }}> {props.note.text}</p> */}
-      <p> {props.note.text}</p>
-    </div>
-  );
+      {/* <p style={{ float: "left" }}> {props.note.text}</p> */
 }
+/*  <p> {props.note.text}</p>
+    </div> */
+//);}

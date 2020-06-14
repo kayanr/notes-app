@@ -1,77 +1,103 @@
 import React, { Component } from "react";
 import "./CreateNote.css";
+import axios from "axios";
 
 export class CreateNote extends Component {
-  submitExpense(event) {
-    event.preventDefault();
-
-    let note = {
-      id: this.refs.id.value,
-      text: this.refs.text.value,
-      color: this.refs.color.value,
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: "",
+      text: "",
+      color: "",
     };
-
-    fetch("http://localhost:8080/note", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(note),
-    }).then((response) => response.json());
-
-    window.location.reload();
+    this.changeHandler = this.changeHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
+  changeHandler(event) {
+    this.setState({ [event.target.name]: event.target.value });
+    //this.setState({ text: event.target.text });
+    //this.setState({ color: event.target.color });
+  }
+
+  submitHandler = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+
+    axios
+
+      .post("http://localhost:8080/note", this.state)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
+    const { id, text, color } = this.state;
     return (
-      // <div className="row">
-      <>
+      <div style={{ clear: "both", marginTop: "100px" }}>
         <h2>Add Notes form test</h2>
-        <div className="container">
-          {/* <form onSubmit={this.submitNote.bind(this)}> */}
-          <form>
-            <br />
+
+        <form onSubmit={this.submitHandler}>
+          <div style={{ float: "left" }}>
             <label
-              htmlFor="description"
+              htmlFor="text"
               style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
+                display: "inline-block",
+                width: "140px",
+                textAlign: "left",
               }}
             >
-              Description:{" "}
+              Text:{" "}
             </label>
             <textarea
-              id="description"
-              name="description"
-              placeholder="Write something..."
-              style={{ height: "170px" }}
+              id="text"
+              name="text"
+              value={text}
+              onChange={this.changeHandler}
+              placeholder="Write your note here..."
+              style={{ height: "300px" }}
             ></textarea>
-            <br />
-            <label
-              htmlFor="category"
-              style={{
-                display: "inline-block;",
-                width: "140px;",
-                textAlign: "right;",
-              }}
-            >
-              Category:{" "}
-            </label>
-            <select id="category" name="category">
-              <option value="Food">Food</option>
-              <option value="Clothing">Clothing</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Travel">Travel</option>
-            </select>{" "}
-            <input
-              type="submit"
-              value="Submit"
-              // style={{ backgroundColor: "#dae8f9" }}
-            />
-          </form>
-        </div>
-      </>
+          </div>
+          <div style={{ float: "left" }}>
+            <div>
+              <label
+                htmlFor="color"
+                style={{
+                  display: "inline-block",
+                  width: "140px",
+                  textAlign: "right",
+                }}
+              >
+                <br />
+                Color:{" "}
+              </label>
+              <select
+                id="color"
+                name="color"
+                value={color}
+                onChange={this.changeHandler}
+              >
+                <option value="yellow">Yellow</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+              </select>{" "}
+            </div>
+            <div style={{ clear: "both" }}>
+              <input
+                type="submit"
+                value="Submit"
+                // style={{ backgroundColor: "#dae8f9" }}
+                style={{ backgroundColor: "blue" }}
+              />
+            </div>
+          </div>
+        </form>
+      </div>
     );
   }
 }
