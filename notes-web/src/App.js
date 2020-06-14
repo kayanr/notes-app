@@ -2,8 +2,6 @@ import React from "react";
 import "./App.css";
 import { NoteListView } from "./components/NoteListView";
 import { CreateNote } from "./components/CreateNote";
-import PostForm from "./components/PostForm";
-import { PostRequest } from "./components/PostRequest";
 
 class App extends React.Component {
   constructor(props) {
